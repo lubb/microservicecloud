@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lbb.springcloud.mapper.DeptmentMapper">
+
+    <select id="findById" resultType="Deptment" parameterType="Long">
+        select deptno,dname,db_source from deptment where deptno=#{deptno};
+    </select>
+
+    <select id="findAll" resultType="Deptment">
+        select deptno,dname,db_source from deptment;
+    </select>
+
+    <insert id="addDept" parameterType="Deptment">
+        insert into deptment(dname,db_source) values (#{dname},DATABASE());
+    </insert>
+</mapper>

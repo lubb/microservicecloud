@@ -1,0 +1,28 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: geteway-zuul9527 #修改注册到eureka的服务名称
+    prefer-ip-address: true #访问路径显示ip地址
+
+zuul:
+  ignored-services: microservicecloud-provider
+  routes:
+    mydept.serviceId: microservicecloud-provider
+    mydept.path: /mydept/**
+  prefix: /xinwis
+
+info:
+  app.name: xinwis-microservicecloud
+  company.name: www.xinwis.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+

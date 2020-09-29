@@ -1,0 +1,14 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: microservicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lubb/microservicecloud-config.git
+          username: lubb
+          password:
+
